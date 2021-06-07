@@ -1,0 +1,11 @@
+#注册中心
+eureka:
+  client:
+    #设置服务注册中心的URL
+    service-url:
+      defaultZone: http://localhost:9093/eureka/
+server:
+  port: 8080
+spring:
+  application:
+    name: cloud-eureka-client-v0
