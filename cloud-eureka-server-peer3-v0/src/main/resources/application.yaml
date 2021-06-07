@@ -1,0 +1,33 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:9093/eureka/,http://peer2:9094/eureka/,http://peer3:9095/eureka/
+spring:
+  application:
+    name: cloud-eureka-server-peer3-v0
+---
+server:
+  port: 9093
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+
+---
+server:
+  port: 9094
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+---
+server:
+  port: 9095
+spring:
+  profiles: peer3
+eureka:
+  instance:
+    hostname: peer3
+
