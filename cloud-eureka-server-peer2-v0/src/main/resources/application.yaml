@@ -1,0 +1,29 @@
+#高可用2个节点
+#应用名称及验证账号
+spring:
+  application:
+    name: cloud-eureka-server-peer2-v0
+---
+spring:
+  profiles: 9091
+server:
+  port: 9091
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    #设置服务注册中心的URL
+    service-url:
+      defaultZone: http://root:root@peer2:9092/eureka/
+---
+spring:
+  profiles: 9092
+server:
+  port: 9092
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    #设置服务注册中心的URL
+    service-url:
+      defaultZone: http://root:root@peer1:9091/eureka/
